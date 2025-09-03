@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="box">
+    <header>
+        <h1>My Tasks</h1>
+        <button id="theme-btn" class="i-btn">
+            <span class="material-symbols-outlined">light_mode</span>
+        </button>
+    </header>
+    <form id="add-frm">
+        <input type="text" id="title-inp" placeholder="Task Title" required>
+        <input type="text" id="desc-inp" placeholder="Description">
+        <input type="date" id="due-inp">
+        <button type="submit" class="i-btn">
+            <span class="material-symbols-outlined">add_circle</span>
+        </button>
+    </form>
+    <div id="fltrs" class="dropdown">
+        <button id="filter-btn" class="i-btn">
+            <span class="material-symbols-outlined">filter_list</span>
+        </button>
+        <ul id="filter-menu" class="dropdown-menu">
+            <li data-url="/tasks" class="f-option active">All</li>
+            <li data-url="/tasks/status?s=PENDING" class="f-option">Pending</li>
+            <li data-url="/tasks/status?s=COMPLETED" class="f-option">Completed</li>
+            <li data-url="/tasks/overDue" class="f-option">Overdue</li>
+        </ul>
+    </div>
+    <ul id="task-lst"></ul>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

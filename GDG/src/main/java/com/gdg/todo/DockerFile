@@ -1,0 +1,15 @@
+# Start with a base image that has Java installed.
+# OpenJDK is a great choice, and the slim version is smaller.
+FROM openjdk:17-jdk-slim
+
+# This is a build argument to find your app's compiled JAR file.
+# The `target/*.jar` part tells it to look for any .jar file in the target/ folder.
+ARG JAR_FILE=target/*.jar
+
+# This command copies your compiled JAR from your computer (or Render's build environment)
+# into the Docker container, and it renames it to `app.jar`.
+COPY ${JAR_FILE} app.jar
+
+# This is the command that gets your application running once the container starts up.
+# It tells Java to execute the `app.jar` file.
+ENTRYPOINT ["java","-jar","/app.jar"]
